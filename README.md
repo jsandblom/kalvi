@@ -1,25 +1,16 @@
-<p align='center'>
-  <img src='https://user-images.githubusercontent.com/11247099/154486817-f86b8f20-5463-4122-b6e9-930622e757f2.png' alt='Vitesse - Opinionated Vite Starter Template' width='600'/>
-</p>
+# Kalvi (kal vitesse)
 
-<p align='center'>
-Mocking up web app with <b>Vitesse</b><sup><em>(speed)</em></sup><br>
-</p>
+## färdigheter som kommer
 
-<br>
-
-<p align='center'>
-<a href="https://vitesse.netlify.app/">Live Demo</a>
-</p>
-
-<br>
-
-<p align='center'>
-<b>English</b> | <a href="https://github.com/antfu/vitesse/blob/main/README.zh-CN.md">简体中文</a>
-<!-- Contributors: Thanks for geting interested, however we DON'T accept new transitions to the README, thanks. -->
-</p>
-
-<br>
+- formulär med autocomplete där både intag och utgifter kan loggas
+- koppling till livsmedelsdatabas, liknande
+- summering per
+  - dag
+  - vecka
+  - senaste sju dagarna
+  - senaste månaden
+- vikter från olika vågar
+- grafik både på intag och vägning
 
 
 ## Features

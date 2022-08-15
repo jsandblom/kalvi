@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { useVuelidate } from '@vuelidate/core'
+import { required } from '@vuelidate/validators'
+
 const user = useUserStore()
 const name = $ref(user.savedName)
 
@@ -9,16 +12,32 @@ const go = () => {
 }
 
 const { t } = useI18n()
+
+const state = reactive({
+  vad: '',
+})
+const rules = reactive({
+  vad: { required },
+})
+const v$ = useVuelidate(rules, state)
 </script>
 
 <template>
+  <div :class="{ error: v$.vad.$errors.length }">
+    <input v-model="state.vad">
+    <div v-for="error of v$.vad.$errors" :key="error.$uid" class="input-errors">
+      <div class="error-msg">
+        {{ error.$message }}
+      </div>
+    </div>
+  </div>
   <div>
     <div text-4xl>
       <div i-carbon-campsite inline-block />
     </div>
     <p>
       <a rel="noreferrer" href="https://github.com/antfu/vitesse" target="_blank">
-        Vitesse
+        Vitesse av Sandblom
       </a>
     </p>
     <p>
