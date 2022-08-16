@@ -5,8 +5,6 @@ import { between, required, requiredIf } from '@vuelidate/validators'
 const user = useUserStore()
 const name = $ref(user.savedName)
 
-const router = useRouter()
-
 const state = reactive({
   vad: '',
   mängd: 1,
@@ -25,7 +23,7 @@ const kal = ''
 
 <template>
   <div>
-    <div :class="{ error: v$.vad.$errors.length }">
+    <div class="w-100%" :class="{ error: v$.vad.$errors.length }">
       vad:
       <input v-model="state.vad" class="border border-grey-300 rounded">
       <div v-for="error of v$.vad.$errors" :key="error.$uid" class="input-errors">
@@ -34,30 +32,32 @@ const kal = ''
         </div>
       </div>
     </div>
-    <div :class="{ error: v$.mängd.$errors.length }">
-      mängd:
-      <input v-model="state.mängd" class="border border-grey-300 rounded">
-      <div v-for="error of v$.mängd.$errors" :key="error.$uid" class="input-errors">
-        <div class="error-msg">
-          {{ error.$message }}
+    <div class="grid">
+      <div :class="{ error: v$.mängd.$errors.length }">
+        mängd:
+        <input v-model="state.mängd" class="border border-grey-300 rounded">
+        <div v-for="error of v$.mängd.$errors" :key="error.$uid" class="input-errors">
+          <div class="error-msg">
+            {{ error.$message }}
+          </div>
         </div>
       </div>
-    </div>
-    <div :class="{ error: v$.enhet.$errors.length }">
-      vad:
-      <input v-model="state.enhet" class="border border-grey-300 rounded">
-      <div v-for="error of v$.enhet.$errors" :key="error.$uid" class="input-errors">
-        <div class="error-msg">
-          {{ error.$message }}
+      <div :class="{ error: v$.enhet.$errors.length }">
+        enhet:
+        <input v-model="state.enhet" class="border border-grey-300 rounded">
+        <div v-for="error of v$.enhet.$errors" :key="error.$uid" class="input-errors">
+          <div class="error-msg">
+            {{ error.$message }}
+          </div>
         </div>
       </div>
-    </div>
-    <div :class="{ error: v$.kcal.$errors.length }">
-      vad:
-      <input v-model="state.kcal" class="border border-grey-300 rounded">
-      <div v-for="error of v$.kcal.$errors" :key="error.$uid" class="input-errors">
-        <div class="error-msg">
-          {{ error.$message }}
+      <div :class="{ error: v$.kcal.$errors.length }">
+        vad:
+        <input v-model="state.kcal" class="border border-grey-300 rounded">
+        <div v-for="error of v$.kcal.$errors" :key="error.$uid" class="input-errors">
+          <div class="error-msg">
+            {{ error.$message }}
+          </div>
         </div>
       </div>
     </div>
