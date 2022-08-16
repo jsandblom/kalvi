@@ -1,3 +1,51 @@
+# Kaloriräknare
+
+## Beskrivning
+
+- ett formulär där man kan fylla i kalorihändelser, positiva och negativa och dessutom vikt och mått
+- tidigare rader kan enkelt kopieras in genom att klicka på tabellen nedanför
+- en sida där man kan få summering per dag med sammanräkning återstod eller övertrassering per löpande sjudagarsperiod och kalendervecka
+
+### Framtida förbättringar
+
+- när man börjar skriva filtreras tidigare inlägg
+- när tillräckliga uppgifter finns kontaktas livsmedelsverkets API och fyller i kalorier
+- liknande databas för fysisk aktivitet?
+- ev någon sorts grafik?
+- summeringen över dagar kan göras med hjälp av endast Array.reduce? Borde likna flera exempel som tidigare setts.
+- poster med alkohol ska filtreras fram och framställas på meningsfullt sätt
+- intervall mellan kaloriintag ska visas om de är relevanta
+- på inmatningen ska man kunna välja tid eller möjligen bara hoppa bakåt med en knapp exempelvis 6 timmar
+
+## Nuxt 3
+
+### modules 
+- nuxt-supabase
+
+## Supabase
+
+### tabell 'kal'
+- id: int8
+- created_at: timestamptz
+- vad: varchar
+- mängd: float8
+- enhet: varchar
+- kcal: int8
+- typ: varchar
+- user_id: varchar
+- user_email: varchar
+
+Authentication by Github
+
+### Policies
+- Enable insert for authenticated users only
+- Enable read access for all users
+
+#### plan
+- users should only be able to read entries with their user_id or user_email
+- users should be able to delete their own entries
+- users should be able to update their own entries
+
 # Kalvi (kal vitesse)
 
 ## färdigheter som kommer

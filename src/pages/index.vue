@@ -19,24 +19,53 @@ const state = reactive({
 })
 const rules = reactive({
   vad: { required },
-  mängd: between(0, 1500),
-  enhet: requiredIf(state.mängd > 0),
+  mängd: { between01500: between(0, 1500) },
+  enhet: { reqIfMängd: requiredIf(state.mängd > 0) },
   kcal: { required },
 })
 const v$ = useVuelidate(rules, state)
 </script>
 
 <template>
-  <div :class="{ error: v$.vad.$errors.length }">
-    vad:
-    <input v-model="state.vad" class="border border-grey-300 rounded">
-    <div v-for="error of v$.vad.$errors" :key="error.$uid" class="input-errors">
-      <div class="error-msg">
-        {{ error.$message }}
+  <div>
+    <div :class="{ error: v$.vad.$errors.length }">
+      vad:
+      <input v-model="state.vad" class="border border-grey-300 rounded">
+      <div v-for="error of v$.vad.$errors" :key="error.$uid" class="input-errors">
+        <div class="error-msg">
+          {{ error.$message }}
+        </div>
       </div>
     </div>
+    <div :class="{ error: v$.mängd.$errors.length }">
+      mängd:
+      <input v-model="state.mängd" class="border border-grey-300 rounded">
+      <div v-for="error of v$.mängd.$errors" :key="error.$uid" class="input-errors">
+        <div class="error-msg">
+          {{ error.$message }}
+        </div>
+      </div>
+    </div>
+    <div :class="{ error: v$.enhet.$errors.length }">
+      vad:
+      <input v-model="state.enhet" class="border border-grey-300 rounded">
+      <div v-for="error of v$.enhet.$errors" :key="error.$uid" class="input-errors">
+        <div class="error-msg">
+          {{ error.$message }}
+        </div>
+      </div>
+    </div>
+    <div :class="{ error: v$.kcal.$errors.length }">
+      vad:
+      <input v-model="state.kcal" class="border border-grey-300 rounded">
+      <div v-for="error of v$.kcal.$errors" :key="error.$uid" class="input-errors">
+        <div class="error-msg">
+          {{ error.$message }}
+        </div>
+      </div>
+    </div>
+    <snabbVy />
   </div>
-  <snabbVy />
 </template>
 
 <route lang="yaml">
