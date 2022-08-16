@@ -4,6 +4,6 @@
 
 <template>
   <div class="border border-red-400 rounded-xl">
-    snabbVy 
+    snabbVy
   </div>
 </template>
